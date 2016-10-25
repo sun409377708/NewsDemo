@@ -18,12 +18,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_hd" translatesAutoresizingMaskIntoConstraints="NO" id="blN-LJ-q0K">
-                                <rect key="frame" x="0.0" y="483" width="375" height="149"/>
+                                <rect key="frame" x="0.0" y="468" width="375" height="149"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="blN-LJ-q0K" secondAttribute="bottom" constant="35" id="Wdh-Sl-2dN"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="blN-LJ-q0K" secondAttribute="bottom" constant="50" id="Wdh-Sl-2dN"/>
                             <constraint firstItem="blN-LJ-q0K" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="XSz-rC-jdk"/>
                             <constraint firstAttribute="trailing" secondItem="blN-LJ-q0K" secondAttribute="trailing" id="mZX-XE-5Bu"/>
                         </constraints>

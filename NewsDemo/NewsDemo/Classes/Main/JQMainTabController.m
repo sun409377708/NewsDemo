@@ -16,23 +16,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSArray *array = @[ @{@"className" : @"JQHomeController", @"title" : @"首页", @"image" : @"tabbar_icon_news_normal"}];
+    
+    NSMutableArray *arrM = [NSMutableArray array];
+    
+    //遍历数组
+    for (NSDictionary *dict in array) {
+        
+        [arrM addObject: [self childControllerWithDict:dict]];
+    }
+    
+    self.viewControllers = arrM.copy;
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addChildViewControllers {
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIViewController *)childControllerWithDict:(NSDictionary *)dict {
+    
+    // 1. 创建控制器
+    NSString *className = dict[@"className"];
+    
+    Class cls = NSClassFromString(className);
+    
+    NSAssert(cls != nil, @"必须传入控制器");
+    
+    UIViewController *vc = [[cls alloc] init];
+    
+    // 2. 设置title
+    NSString *title = dict[@"title"];
+    
+    vc.title = title;
+    
+    // 3. 设置图片
+    NSString *imageName = dict[@"image"];
+    
+    [vc.tabBarItem setImage:[UIImage imageNamed:imageName]];
+    
+    // 4. 设置导航控制器
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    return nav;
 }
-*/
 
 @end
