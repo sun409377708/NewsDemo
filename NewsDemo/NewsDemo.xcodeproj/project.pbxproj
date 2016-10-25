@@ -18,7 +18,6 @@
 		77B41CE91DBF47030091E51F /* NSAttributedString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CCC1DBF47030091E51F /* NSAttributedString+Extension.m */; };
 		77B41CEA1DBF47030091E51F /* NSObject+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CCE1DBF47030091E51F /* NSObject+CZAddition.m */; };
 		77B41CEB1DBF47030091E51F /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CD01DBF47030091E51F /* NSString+Base64.m */; };
-		77B41CEC1DBF47030091E51F /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CD21DBF47030091E51F /* NSString+CZHash.m */; };
 		77B41CED1DBF47030091E51F /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CD41DBF47030091E51F /* NSString+Hash.m */; };
 		77B41CEE1DBF47030091E51F /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CD61DBF47030091E51F /* NSString+Path.m */; };
 		77B41CEF1DBF47030091E51F /* UIColor+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CD81DBF47030091E51F /* UIColor+CZAddition.m */; };
@@ -54,8 +53,6 @@
 		77B41CCE1DBF47030091E51F /* NSObject+CZAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CZAddition.m"; sourceTree = "<group>"; };
 		77B41CCF1DBF47030091E51F /* NSString+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64.h"; sourceTree = "<group>"; };
 		77B41CD01DBF47030091E51F /* NSString+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64.m"; sourceTree = "<group>"; };
-		77B41CD11DBF47030091E51F /* NSString+CZHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZHash.h"; sourceTree = "<group>"; };
-		77B41CD21DBF47030091E51F /* NSString+CZHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CZHash.m"; sourceTree = "<group>"; };
 		77B41CD31DBF47030091E51F /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		77B41CD41DBF47030091E51F /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		77B41CD51DBF47030091E51F /* NSString+Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Path.h"; sourceTree = "<group>"; };
@@ -78,6 +75,7 @@
 		77B41CF71DBF472D0091E51F /* JQMainTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQMainTabController.m; sourceTree = "<group>"; };
 		77B41CF91DBF47480091E51F /* JQHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQHomeController.h; sourceTree = "<group>"; };
 		77B41CFA1DBF47480091E51F /* JQHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQHomeController.m; sourceTree = "<group>"; };
+		77B41CFC1DBF4A5F0091E51F /* NewsPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsPrefixHeader.pch; sourceTree = "<group>"; };
 		B544963064173AEB383905ED /* Pods-NewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CF5F054A288BDE4DA7732B83 /* Pods-NewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +138,7 @@
 				77B41CB61DBF436E0091E51F /* LaunchScreen.storyboard */,
 				77B41CB91DBF436E0091E51F /* Info.plist */,
 				77B41CA91DBF436E0091E51F /* main.m */,
+				77B41CFC1DBF4A5F0091E51F /* NewsPrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -196,8 +195,6 @@
 				77B41CCE1DBF47030091E51F /* NSObject+CZAddition.m */,
 				77B41CCF1DBF47030091E51F /* NSString+Base64.h */,
 				77B41CD01DBF47030091E51F /* NSString+Base64.m */,
-				77B41CD11DBF47030091E51F /* NSString+CZHash.h */,
-				77B41CD21DBF47030091E51F /* NSString+CZHash.m */,
 				77B41CD31DBF47030091E51F /* NSString+Hash.h */,
 				77B41CD41DBF47030091E51F /* NSString+Hash.m */,
 				77B41CD51DBF47030091E51F /* NSString+Path.h */,
@@ -360,7 +357,6 @@
 				77B41CE61DBF47030091E51F /* NSArray+CZAddition.m in Sources */,
 				77B41CFB1DBF47480091E51F /* JQHomeController.m in Sources */,
 				77B41CF31DBF47030091E51F /* UIView+WP.m in Sources */,
-				77B41CEC1DBF47030091E51F /* NSString+CZHash.m in Sources */,
 				77B41CE71DBF47030091E51F /* NSArray+Log.m in Sources */,
 				77B41CF41DBF47030091E51F /* ZFBSlideCell.m in Sources */,
 				77B41CF21DBF47030091E51F /* UILabel+Extension.m in Sources */,
@@ -481,6 +477,7 @@
 			baseConfigurationReference = CF5F054A288BDE4DA7732B83 /* Pods-NewsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = NewsDemo/NewsPrefixHeader.pch;
 				INFOPLIST_FILE = NewsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -494,6 +491,7 @@
 			baseConfigurationReference = B544963064173AEB383905ED /* Pods-NewsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = NewsDemo/NewsPrefixHeader.pch;
 				INFOPLIST_FILE = NewsDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
