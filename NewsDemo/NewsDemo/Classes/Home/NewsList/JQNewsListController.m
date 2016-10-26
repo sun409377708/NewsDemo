@@ -9,6 +9,7 @@
 #import "JQNewsListController.h"
 #import "JQNewsList.h"
 #import "JQNewsNormalCell.h"
+#import "JQExtraImageCell.h"
 
 static NSString *cellId = @"cellId";
 
@@ -54,9 +55,10 @@ static NSString *cellId = @"cellId";
     tableView.rowHeight = UITableViewAutomaticDimension;
     tableView.estimatedRowHeight = 100;
     
-//    [tableView registerClass:[JQNewsNormalCell class] forCellReuseIdentifier:cellId];
-    [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:cellId];
-    
+//    [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:cellId];
+
+    [tableView registerNib:[UINib nibWithNibName:@"JQExtraImageCell" bundle:nil] forCellReuseIdentifier:cellId];
+
     [self.view addSubview:tableView];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,7 +77,7 @@ static NSString *cellId = @"cellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    JQNewsNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    JQExtraImageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     
     JQNewsList *list = _newsList[indexPath.row];
     
@@ -83,6 +85,16 @@ static NSString *cellId = @"cellId";
     cell.titleLabel.text = list.title;
     cell.sourceLabel.text = list.source;
     cell.replyLabel.text = [NSString stringWithFormat:@"%zd", list.replyCount];
+    
+    NSInteger index = 0;
+    for (NSDictionary *dict in list.imgextra) {
+        
+        NSURL *url = [NSURL URLWithString:dict[@"imgsrc"]];
+        
+        UIImageView *iv = cell.extraIcon[index++];
+        
+        [iv sd_setImageWithURL:url];
+    }
     
     return cell;
 }
