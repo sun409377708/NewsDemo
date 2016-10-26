@@ -7,10 +7,16 @@
 //
 
 #import "JQNewsListController.h"
+#import "JQNewsList.h"
+#import "JQNewsNormalCell.h"
 
 static NSString *cellId = @"cellId";
 
 @interface JQNewsListController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) NSMutableArray *newsList;
+
+@property (nonatomic, weak) UITableView *tableView;
 
 @end
 
@@ -18,6 +24,8 @@ static NSString *cellId = @"cellId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    _newsList = [NSMutableArray array];
     
     [self setupUI];
     
@@ -28,7 +36,13 @@ static NSString *cellId = @"cellId";
     
     [[JQNetworkManager sharedManager] newsListWithChannel:@"T1348649079062" start:0 completion:^(NSArray *array, NSError *error) {
         
-        NSLog(@"%@", array);
+        NSArray *list = [NSArray yy_modelArrayWithClass:[JQNewsList class] json:array];
+        
+        _newsList = [NSMutableArray arrayWithArray:list];
+        
+        //刷新数据
+        [self.tableView reloadData];
+        
     }];
 }
 
@@ -37,26 +51,38 @@ static NSString *cellId = @"cellId";
     
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.rowHeight = UITableViewAutomaticDimension;
+    tableView.estimatedRowHeight = 100;
     
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+//    [tableView registerClass:[JQNewsNormalCell class] forCellReuseIdentifier:cellId];
+    [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:cellId];
     
     [self.view addSubview:tableView];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    _tableView = tableView;
 }
 
 #pragma mark -
 #pragma mark dataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return _newsList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    JQNewsNormalCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    JQNewsList *list = _newsList[indexPath.row];
+    
+    [cell.iconView sd_setImageWithURL:[NSURL URLWithString:list.imgsrc]];
+    cell.titleLabel.text = list.title;
+    cell.sourceLabel.text = list.source;
+    cell.replyLabel.text = [NSString stringWithFormat:@"%zd", list.replyCount];
     
     return cell;
 }

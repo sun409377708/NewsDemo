@@ -32,6 +32,8 @@
 		77B41D011DBF5B310091E51F /* JQNewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D001DBF5B310091E51F /* JQNewsListController.m */; };
 		77B41D051DC043AB0091E51F /* JQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D041DC043AB0091E51F /* JQNetworkManager.m */; };
 		77B41D091DC05A4F0091E51F /* JQNewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D081DC05A4F0091E51F /* JQNewsList.m */; };
+		77B41D0E1DC05DBA0091E51F /* JQNewsNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D0C1DC05DBA0091E51F /* JQNewsNormalCell.m */; };
+		77B41D0F1DC05DBA0091E51F /* JQNewsNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,9 @@
 		77B41D041DC043AB0091E51F /* JQNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNetworkManager.m; sourceTree = "<group>"; };
 		77B41D071DC05A4F0091E51F /* JQNewsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsList.h; sourceTree = "<group>"; };
 		77B41D081DC05A4F0091E51F /* JQNewsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsList.m; sourceTree = "<group>"; };
+		77B41D0B1DC05DBA0091E51F /* JQNewsNormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsNormalCell.h; sourceTree = "<group>"; };
+		77B41D0C1DC05DBA0091E51F /* JQNewsNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsNormalCell.m; sourceTree = "<group>"; };
+		77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQNewsNormalCell.xib; sourceTree = "<group>"; };
 		B544963064173AEB383905ED /* Pods-NewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CF5F054A288BDE4DA7732B83 /* Pods-NewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -246,6 +251,7 @@
 		77B41CFE1DBF5B120091E51F /* NewsList */ = {
 			isa = PBXGroup;
 			children = (
+				77B41D0A1DC05D830091E51F /* Views */,
 				77B41D061DC05A2D0091E51F /* Model */,
 				77B41CFF1DBF5B310091E51F /* JQNewsListController.h */,
 				77B41D001DBF5B310091E51F /* JQNewsListController.m */,
@@ -269,6 +275,16 @@
 				77B41D081DC05A4F0091E51F /* JQNewsList.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		77B41D0A1DC05D830091E51F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				77B41D0B1DC05DBA0091E51F /* JQNewsNormalCell.h */,
+				77B41D0C1DC05DBA0091E51F /* JQNewsNormalCell.m */,
+				77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CC7B3DF29EF50652C022D160 /* Frameworks */ = {
@@ -343,6 +359,7 @@
 			files = (
 				77B41CB81DBF436E0091E51F /* LaunchScreen.storyboard in Resources */,
 				77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */,
+				77B41D0F1DC05DBA0091E51F /* JQNewsNormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +438,7 @@
 				77B41CEF1DBF47030091E51F /* UIColor+CZAddition.m in Sources */,
 				77B41CEA1DBF47030091E51F /* NSObject+CZAddition.m in Sources */,
 				77B41D011DBF5B310091E51F /* JQNewsListController.m in Sources */,
+				77B41D0E1DC05DBA0091E51F /* JQNewsNormalCell.m in Sources */,
 				77B41CAA1DBF436E0091E51F /* main.m in Sources */,
 				77B41CE91DBF47030091E51F /* NSAttributedString+Extension.m in Sources */,
 			);
