@@ -12,6 +12,9 @@
 
 static NSString *normalId = @"normalId";
 static NSString *extraId = @"extraId";
+static NSString *bigImageId = @"bigImageId";
+static NSString *headerID = @"headerID";
+
 
 @interface JQNewsListController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -25,9 +28,7 @@ static NSString *extraId = @"extraId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    _newsList = [NSMutableArray array];
-    
+        
     [self setupUI];
     
     [self loadData];
@@ -58,6 +59,11 @@ static NSString *extraId = @"extraId";
     [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:normalId];
 
     [tableView registerNib:[UINib nibWithNibName:@"JQExtraImageCell" bundle:nil] forCellReuseIdentifier:extraId];
+    
+    [tableView registerNib:[UINib nibWithNibName:@"JQBigImageCell" bundle:nil] forCellReuseIdentifier:bigImageId];
+    
+    [tableView registerNib:[UINib nibWithNibName:@"JQHeadCell" bundle:nil] forCellReuseIdentifier:headerID];
+
 
     [self.view addSubview:tableView];
     
@@ -81,7 +87,11 @@ static NSString *extraId = @"extraId";
     
     //判断cellID
     NSString *cellId;
-    if (list.imgextra.count > 0) {
+    if (list.hasHead) {
+        cellId = headerID;
+    }else if (list.imgType) {
+        cellId = bigImageId;
+    }else if (list.imgextra.count > 0) {
         cellId = extraId;
     }else {
         cellId = normalId;
@@ -89,20 +99,7 @@ static NSString *extraId = @"extraId";
     
     JQNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     
-    [cell.iconView sd_setImageWithURL:[NSURL URLWithString:list.imgsrc]];
-    cell.titleLabel.text = list.title;
-    cell.sourceLabel.text = list.source;
-    cell.replyLabel.text = [NSString stringWithFormat:@"%zd", list.replyCount];
-    
-    NSInteger index = 0;
-    for (NSDictionary *dict in list.imgextra) {
-        
-        NSURL *url = [NSURL URLWithString:dict[@"imgsrc"]];
-        
-        UIImageView *iv = cell.extraIcon[index++];
-        
-        [iv sd_setImageWithURL:url];
-    }
+    cell.newsItem = list;
     
     return cell;
 }

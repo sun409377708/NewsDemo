@@ -10,6 +10,8 @@
 		08398525DE9E37D37B4064C6 /* libPods-NewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5D77AA2BECBA536DE59B2B /* libPods-NewsDemo.a */; };
 		7739A5CB1DC085030020D974 /* JQExtraImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5C91DC085030020D974 /* JQExtraImageCell.xib */; };
 		7739A5CE1DC08CFD0020D974 /* JQNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A5CD1DC08CFD0020D974 /* JQNewsCell.m */; };
+		7739A5D01DC095BD0020D974 /* JQBigImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5CF1DC095BD0020D974 /* JQBigImageCell.xib */; };
+		7739A5D21DC09AB90020D974 /* JQHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5D11DC09AB90020D974 /* JQHeadCell.xib */; };
 		77B41CAA1DBF436E0091E51F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CA91DBF436E0091E51F /* main.m */; };
 		77B41CAD1DBF436E0091E51F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CAC1DBF436E0091E51F /* AppDelegate.m */; };
 		77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B41CB41DBF436E0091E51F /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		7739A5C91DC085030020D974 /* JQExtraImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQExtraImageCell.xib; sourceTree = "<group>"; };
 		7739A5CC1DC08CFD0020D974 /* JQNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsCell.h; sourceTree = "<group>"; };
 		7739A5CD1DC08CFD0020D974 /* JQNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsCell.m; sourceTree = "<group>"; };
+		7739A5CF1DC095BD0020D974 /* JQBigImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQBigImageCell.xib; sourceTree = "<group>"; };
+		7739A5D11DC09AB90020D974 /* JQHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQHeadCell.xib; sourceTree = "<group>"; };
 		77B41CA51DBF436E0091E51F /* NewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B41CA91DBF436E0091E51F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77B41CAB1DBF436E0091E51F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -284,8 +288,10 @@
 			children = (
 				7739A5CC1DC08CFD0020D974 /* JQNewsCell.h */,
 				7739A5CD1DC08CFD0020D974 /* JQNewsCell.m */,
+				7739A5CF1DC095BD0020D974 /* JQBigImageCell.xib */,
 				77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */,
 				7739A5C91DC085030020D974 /* JQExtraImageCell.xib */,
+				7739A5D11DC09AB90020D974 /* JQHeadCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,6 +370,8 @@
 				77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */,
 				77B41D0F1DC05DBA0091E51F /* JQNewsNormalCell.xib in Resources */,
 				7739A5CB1DC085030020D974 /* JQExtraImageCell.xib in Resources */,
+				7739A5D21DC09AB90020D974 /* JQHeadCell.xib in Resources */,
+				7739A5D01DC095BD0020D974 /* JQBigImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
