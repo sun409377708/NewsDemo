@@ -8,10 +8,10 @@
 
 #import "JQNewsListController.h"
 #import "JQNewsList.h"
-#import "JQNewsNormalCell.h"
-#import "JQExtraImageCell.h"
+#import "JQNewsCell.h"
 
-static NSString *cellId = @"cellId";
+static NSString *normalId = @"normalId";
+static NSString *extraId = @"extraId";
 
 @interface JQNewsListController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -55,9 +55,9 @@ static NSString *cellId = @"cellId";
     tableView.rowHeight = UITableViewAutomaticDimension;
     tableView.estimatedRowHeight = 100;
     
-//    [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:cellId];
+    [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:normalId];
 
-    [tableView registerNib:[UINib nibWithNibName:@"JQExtraImageCell" bundle:nil] forCellReuseIdentifier:cellId];
+    [tableView registerNib:[UINib nibWithNibName:@"JQExtraImageCell" bundle:nil] forCellReuseIdentifier:extraId];
 
     [self.view addSubview:tableView];
     
@@ -76,10 +76,18 @@ static NSString *cellId = @"cellId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    JQExtraImageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    
+
     JQNewsList *list = _newsList[indexPath.row];
+    
+    //判断cellID
+    NSString *cellId;
+    if (list.imgextra.count > 0) {
+        cellId = extraId;
+    }else {
+        cellId = normalId;
+    }
+    
+    JQNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     
     [cell.iconView sd_setImageWithURL:[NSURL URLWithString:list.imgsrc]];
     cell.titleLabel.text = list.title;

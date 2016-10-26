@@ -1,14 +1,14 @@
 //
-//  JQExtraImageCell.m
+//  JQNewsCell.m
 //  NewsDemo
 //
 //  Created by maoge on 16/10/26.
 //  Copyright © 2016年 maoge. All rights reserved.
 //
 
-#import "JQExtraImageCell.h"
+#import "JQNewsCell.h"
 
-@implementation JQExtraImageCell
+@implementation JQNewsCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08398525DE9E37D37B4064C6 /* libPods-NewsDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E5D77AA2BECBA536DE59B2B /* libPods-NewsDemo.a */; };
-		7739A5CA1DC085030020D974 /* JQExtraImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A5C81DC085030020D974 /* JQExtraImageCell.m */; };
 		7739A5CB1DC085030020D974 /* JQExtraImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5C91DC085030020D974 /* JQExtraImageCell.xib */; };
+		7739A5CE1DC08CFD0020D974 /* JQNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A5CD1DC08CFD0020D974 /* JQNewsCell.m */; };
 		77B41CAA1DBF436E0091E51F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CA91DBF436E0091E51F /* main.m */; };
 		77B41CAD1DBF436E0091E51F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CAC1DBF436E0091E51F /* AppDelegate.m */; };
 		77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B41CB41DBF436E0091E51F /* Assets.xcassets */; };
@@ -34,15 +34,14 @@
 		77B41D011DBF5B310091E51F /* JQNewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D001DBF5B310091E51F /* JQNewsListController.m */; };
 		77B41D051DC043AB0091E51F /* JQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D041DC043AB0091E51F /* JQNetworkManager.m */; };
 		77B41D091DC05A4F0091E51F /* JQNewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D081DC05A4F0091E51F /* JQNewsList.m */; };
-		77B41D0E1DC05DBA0091E51F /* JQNewsNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D0C1DC05DBA0091E51F /* JQNewsNormalCell.m */; };
 		77B41D0F1DC05DBA0091E51F /* JQNewsNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2E5D77AA2BECBA536DE59B2B /* libPods-NewsDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewsDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7739A5C71DC085030020D974 /* JQExtraImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQExtraImageCell.h; sourceTree = "<group>"; };
-		7739A5C81DC085030020D974 /* JQExtraImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQExtraImageCell.m; sourceTree = "<group>"; };
 		7739A5C91DC085030020D974 /* JQExtraImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQExtraImageCell.xib; sourceTree = "<group>"; };
+		7739A5CC1DC08CFD0020D974 /* JQNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsCell.h; sourceTree = "<group>"; };
+		7739A5CD1DC08CFD0020D974 /* JQNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsCell.m; sourceTree = "<group>"; };
 		77B41CA51DBF436E0091E51F /* NewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B41CA91DBF436E0091E51F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77B41CAB1DBF436E0091E51F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -92,8 +91,6 @@
 		77B41D041DC043AB0091E51F /* JQNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNetworkManager.m; sourceTree = "<group>"; };
 		77B41D071DC05A4F0091E51F /* JQNewsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsList.h; sourceTree = "<group>"; };
 		77B41D081DC05A4F0091E51F /* JQNewsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsList.m; sourceTree = "<group>"; };
-		77B41D0B1DC05DBA0091E51F /* JQNewsNormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsNormalCell.h; sourceTree = "<group>"; };
-		77B41D0C1DC05DBA0091E51F /* JQNewsNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsNormalCell.m; sourceTree = "<group>"; };
 		77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQNewsNormalCell.xib; sourceTree = "<group>"; };
 		B544963064173AEB383905ED /* Pods-NewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CF5F054A288BDE4DA7732B83 /* Pods-NewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -285,11 +282,9 @@
 		77B41D0A1DC05D830091E51F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				77B41D0B1DC05DBA0091E51F /* JQNewsNormalCell.h */,
-				77B41D0C1DC05DBA0091E51F /* JQNewsNormalCell.m */,
+				7739A5CC1DC08CFD0020D974 /* JQNewsCell.h */,
+				7739A5CD1DC08CFD0020D974 /* JQNewsCell.m */,
 				77B41D0D1DC05DBA0091E51F /* JQNewsNormalCell.xib */,
-				7739A5C71DC085030020D974 /* JQExtraImageCell.h */,
-				7739A5C81DC085030020D974 /* JQExtraImageCell.m */,
 				7739A5C91DC085030020D974 /* JQExtraImageCell.xib */,
 			);
 			path = Views;
@@ -428,13 +423,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				77B41CE61DBF47030091E51F /* NSArray+CZAddition.m in Sources */,
+				7739A5CE1DC08CFD0020D974 /* JQNewsCell.m in Sources */,
 				77B41CFB1DBF47480091E51F /* JQHomeController.m in Sources */,
 				77B41CF31DBF47030091E51F /* UIView+WP.m in Sources */,
 				77B41CE71DBF47030091E51F /* NSArray+Log.m in Sources */,
 				77B41D051DC043AB0091E51F /* JQNetworkManager.m in Sources */,
 				77B41CF41DBF47030091E51F /* ZFBSlideCell.m in Sources */,
 				77B41CF21DBF47030091E51F /* UILabel+Extension.m in Sources */,
-				7739A5CA1DC085030020D974 /* JQExtraImageCell.m in Sources */,
 				77B41D091DC05A4F0091E51F /* JQNewsList.m in Sources */,
 				77B41CF11DBF47030091E51F /* UILabel+CZAddition.m in Sources */,
 				77B41CEE1DBF47030091E51F /* NSString+Path.m in Sources */,
@@ -448,7 +443,6 @@
 				77B41CEF1DBF47030091E51F /* UIColor+CZAddition.m in Sources */,
 				77B41CEA1DBF47030091E51F /* NSObject+CZAddition.m in Sources */,
 				77B41D011DBF5B310091E51F /* JQNewsListController.m in Sources */,
-				77B41D0E1DC05DBA0091E51F /* JQNewsNormalCell.m in Sources */,
 				77B41CAA1DBF436E0091E51F /* main.m in Sources */,
 				77B41CE91DBF47030091E51F /* NSAttributedString+Extension.m in Sources */,
 			);
