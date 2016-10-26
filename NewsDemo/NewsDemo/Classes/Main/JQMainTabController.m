@@ -17,7 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *array = @[ @{@"className" : @"JQHomeController", @"title" : @"首页", @"image" : @"tabbar_icon_news_normal"}];
+    self.tabBar.tintColor = [UIColor cz_colorWithHex:0xDF0000];
+    
+    NSArray *array = @[ @{@"className" : @"JQHomeController", @"title" : @"新闻", @"image"
+                          : @"news"},
+                        @{@"className" : @"UIViewController", @"title" : @"阅读", @"image" : @"reader"},
+                        @{@"className" : @"UIViewController", @"title" : @"视频", @"image" : @"media"},
+                        @{@"className" : @"UIViewController", @"title" : @"话题", @"image" : @"bar"},
+                        @{@"className" : @"UIViewController", @"title" : @"我", @"image" : @"me"}
+                        ];
     
     NSMutableArray *arrM = [NSMutableArray array];
     
@@ -52,9 +60,12 @@
     vc.title = title;
     
     // 3. 设置图片
-    NSString *imageName = dict[@"image"];
+    NSString *imageName = [NSString stringWithFormat:@"tabbar_icon_%@_normal", dict[@"image"]];
     
     [vc.tabBarItem setImage:[UIImage imageNamed:imageName]];
+    
+     NSString *imageNameHL = [NSString stringWithFormat:@"tabbar_icon_%@_highlight", dict[@"image"]];
+    vc.tabBarItem.selectedImage = [[UIImage imageNamed:imageNameHL] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     // 4. 设置导航控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

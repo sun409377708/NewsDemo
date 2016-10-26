@@ -19,7 +19,7 @@
     // Override point for customization after application launch.
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    Class cls = NSClassFromString(@"JQMainTabController");
+    Class cls = NSClassFromString(@"JQNewsListController");
     
     UIViewController *vc = [[cls alloc] init];
     

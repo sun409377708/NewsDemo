@@ -29,6 +29,9 @@
 		77B41CF51DBF47030091E51F /* ZFBSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CE51DBF47030091E51F /* ZFBSlideView.m */; };
 		77B41CF81DBF472D0091E51F /* JQMainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CF71DBF472D0091E51F /* JQMainTabController.m */; };
 		77B41CFB1DBF47480091E51F /* JQHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CFA1DBF47480091E51F /* JQHomeController.m */; };
+		77B41D011DBF5B310091E51F /* JQNewsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D001DBF5B310091E51F /* JQNewsListController.m */; };
+		77B41D051DC043AB0091E51F /* JQNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D041DC043AB0091E51F /* JQNetworkManager.m */; };
+		77B41D091DC05A4F0091E51F /* JQNewsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41D081DC05A4F0091E51F /* JQNewsList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,12 @@
 		77B41CF91DBF47480091E51F /* JQHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQHomeController.h; sourceTree = "<group>"; };
 		77B41CFA1DBF47480091E51F /* JQHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQHomeController.m; sourceTree = "<group>"; };
 		77B41CFC1DBF4A5F0091E51F /* NewsPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsPrefixHeader.pch; sourceTree = "<group>"; };
+		77B41CFF1DBF5B310091E51F /* JQNewsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsListController.h; sourceTree = "<group>"; };
+		77B41D001DBF5B310091E51F /* JQNewsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsListController.m; sourceTree = "<group>"; };
+		77B41D031DC043AB0091E51F /* JQNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNetworkManager.h; sourceTree = "<group>"; };
+		77B41D041DC043AB0091E51F /* JQNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNetworkManager.m; sourceTree = "<group>"; };
+		77B41D071DC05A4F0091E51F /* JQNewsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsList.h; sourceTree = "<group>"; };
+		77B41D081DC05A4F0091E51F /* JQNewsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsList.m; sourceTree = "<group>"; };
 		B544963064173AEB383905ED /* Pods-NewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CF5F054A288BDE4DA7732B83 /* Pods-NewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +131,7 @@
 		77B41CA71DBF436E0091E51F /* NewsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				77B41D021DC0426E0091E51F /* Network */,
 				77B41CC21DBF47030091E51F /* Tools */,
 				77B41CBF1DBF46F90091E51F /* Classes */,
 				77B41CAB1DBF436E0091E51F /* AppDelegate.h */,
@@ -155,6 +165,8 @@
 		77B41CC01DBF46F90091E51F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				77B41CFE1DBF5B120091E51F /* NewsList */,
+				77B41CFD1DBF5B120091E51F /* NewsDetail */,
 				77B41CF91DBF47480091E51F /* JQHomeController.h */,
 				77B41CFA1DBF47480091E51F /* JQHomeController.m */,
 			);
@@ -222,6 +234,41 @@
 				77B41CE51DBF47030091E51F /* ZFBSlideView.m */,
 			);
 			path = "图片轮播器";
+			sourceTree = "<group>";
+		};
+		77B41CFD1DBF5B120091E51F /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		77B41CFE1DBF5B120091E51F /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				77B41D061DC05A2D0091E51F /* Model */,
+				77B41CFF1DBF5B310091E51F /* JQNewsListController.h */,
+				77B41D001DBF5B310091E51F /* JQNewsListController.m */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		77B41D021DC0426E0091E51F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				77B41D031DC043AB0091E51F /* JQNetworkManager.h */,
+				77B41D041DC043AB0091E51F /* JQNetworkManager.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		77B41D061DC05A2D0091E51F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77B41D071DC05A4F0091E51F /* JQNewsList.h */,
+				77B41D081DC05A4F0091E51F /* JQNewsList.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CC7B3DF29EF50652C022D160 /* Frameworks */ = {
@@ -358,8 +405,10 @@
 				77B41CFB1DBF47480091E51F /* JQHomeController.m in Sources */,
 				77B41CF31DBF47030091E51F /* UIView+WP.m in Sources */,
 				77B41CE71DBF47030091E51F /* NSArray+Log.m in Sources */,
+				77B41D051DC043AB0091E51F /* JQNetworkManager.m in Sources */,
 				77B41CF41DBF47030091E51F /* ZFBSlideCell.m in Sources */,
 				77B41CF21DBF47030091E51F /* UILabel+Extension.m in Sources */,
+				77B41D091DC05A4F0091E51F /* JQNewsList.m in Sources */,
 				77B41CF11DBF47030091E51F /* UILabel+CZAddition.m in Sources */,
 				77B41CEE1DBF47030091E51F /* NSString+Path.m in Sources */,
 				77B41CF81DBF472D0091E51F /* JQMainTabController.m in Sources */,
@@ -371,6 +420,7 @@
 				77B41CF51DBF47030091E51F /* ZFBSlideView.m in Sources */,
 				77B41CEF1DBF47030091E51F /* UIColor+CZAddition.m in Sources */,
 				77B41CEA1DBF47030091E51F /* NSObject+CZAddition.m in Sources */,
+				77B41D011DBF5B310091E51F /* JQNewsListController.m in Sources */,
 				77B41CAA1DBF436E0091E51F /* main.m in Sources */,
 				77B41CE91DBF47030091E51F /* NSAttributedString+Extension.m in Sources */,
 			);
