@@ -13,6 +13,10 @@
 		7739A5D01DC095BD0020D974 /* JQBigImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5CF1DC095BD0020D974 /* JQBigImageCell.xib */; };
 		7739A5D21DC09AB90020D974 /* JQHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5D11DC09AB90020D974 /* JQHeadCell.xib */; };
 		7739A5D51DC0A0050020D974 /* UIImageView+JQ_WebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A5D41DC0A0050020D974 /* UIImageView+JQ_WebImage.m */; };
+		7739A5D81DC0A3460020D974 /* JQChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5D71DC0A3460020D974 /* JQChannelView.xib */; };
+		7739A5DA1DC0A3AD0020D974 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5D91DC0A3AD0020D974 /* topic_news.json */; };
+		7739A5DC1DC0A3B30020D974 /* news.css in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5DB1DC0A3B30020D974 /* news.css */; };
+		7739A5E21DC0A7120020D974 /* JQChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A5E11DC0A7120020D974 /* JQChannelView.m */; };
 		77B41CAA1DBF436E0091E51F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CA91DBF436E0091E51F /* main.m */; };
 		77B41CAD1DBF436E0091E51F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CAC1DBF436E0091E51F /* AppDelegate.m */; };
 		77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B41CB41DBF436E0091E51F /* Assets.xcassets */; };
@@ -49,6 +53,11 @@
 		7739A5D11DC09AB90020D974 /* JQHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQHeadCell.xib; sourceTree = "<group>"; };
 		7739A5D31DC0A0050020D974 /* UIImageView+JQ_WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JQ_WebImage.h"; sourceTree = "<group>"; };
 		7739A5D41DC0A0050020D974 /* UIImageView+JQ_WebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JQ_WebImage.m"; sourceTree = "<group>"; };
+		7739A5D71DC0A3460020D974 /* JQChannelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JQChannelView.xib; sourceTree = "<group>"; };
+		7739A5D91DC0A3AD0020D974 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
+		7739A5DB1DC0A3B30020D974 /* news.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = news.css; sourceTree = "<group>"; };
+		7739A5E01DC0A7120020D974 /* JQChannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQChannelView.h; sourceTree = "<group>"; };
+		7739A5E11DC0A7120020D974 /* JQChannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQChannelView.m; sourceTree = "<group>"; };
 		77B41CA51DBF436E0091E51F /* NewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B41CA91DBF436E0091E51F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77B41CAB1DBF436E0091E51F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,6 +133,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7739A5D61DC0A2FF0020D974 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				7739A5D71DC0A3460020D974 /* JQChannelView.xib */,
+				7739A5E01DC0A7120020D974 /* JQChannelView.h */,
+				7739A5E11DC0A7120020D974 /* JQChannelView.m */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		77B41C9C1DBF436E0091E51F = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				77B41CB41DBF436E0091E51F /* Assets.xcassets */,
+				7739A5D91DC0A3AD0020D974 /* topic_news.json */,
+				7739A5DB1DC0A3B30020D974 /* news.css */,
 				77B41CB61DBF436E0091E51F /* LaunchScreen.storyboard */,
 				77B41CB91DBF436E0091E51F /* Info.plist */,
 				77B41CA91DBF436E0091E51F /* main.m */,
@@ -179,6 +200,7 @@
 		77B41CC01DBF46F90091E51F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7739A5D61DC0A2FF0020D974 /* News */,
 				77B41CFE1DBF5B120091E51F /* NewsList */,
 				77B41CFD1DBF5B120091E51F /* NewsDetail */,
 				77B41CF91DBF47480091E51F /* JQHomeController.h */,
@@ -373,9 +395,12 @@
 			files = (
 				77B41CB81DBF436E0091E51F /* LaunchScreen.storyboard in Resources */,
 				77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */,
+				7739A5DC1DC0A3B30020D974 /* news.css in Resources */,
+				7739A5DA1DC0A3AD0020D974 /* topic_news.json in Resources */,
 				77B41D0F1DC05DBA0091E51F /* JQNewsNormalCell.xib in Resources */,
 				7739A5CB1DC085030020D974 /* JQExtraImageCell.xib in Resources */,
 				7739A5D21DC09AB90020D974 /* JQHeadCell.xib in Resources */,
+				7739A5D81DC0A3460020D974 /* JQChannelView.xib in Resources */,
 				7739A5D01DC095BD0020D974 /* JQBigImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77B41CE61DBF47030091E51F /* NSArray+CZAddition.m in Sources */,
+				7739A5E21DC0A7120020D974 /* JQChannelView.m in Sources */,
 				7739A5CE1DC08CFD0020D974 /* JQNewsCell.m in Sources */,
 				77B41CFB1DBF47480091E51F /* JQHomeController.m in Sources */,
 				77B41CF31DBF47030091E51F /* UIView+WP.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworkActivityIndicatorManager.h>
 
 @interface AppDelegate ()
 
@@ -16,10 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    //设置网络加载小菊花
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    Class cls = NSClassFromString(@"JQNewsListController");
+    Class cls = NSClassFromString(@"JQMainTabController");
     
     UIViewController *vc = [[cls alloc] init];
     
