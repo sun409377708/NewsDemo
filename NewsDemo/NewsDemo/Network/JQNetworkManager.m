@@ -38,10 +38,21 @@
         
         NSArray *array = json[channel];
         
-        completion(array, nil);
+        completion(array, error);
     }];
 }
 
+#pragma mark -
+#pragma mark 详情界面接口
+- (void)newsDetailWithDocId:(NSString *)docId completion:(void(^)(NSDictionary *dict, NSError *error))completion {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@/full.html", docId];
+    
+    [self GETRuquest:urlString parameter:nil completion:^(id json, NSError *error) {
+        
+        completion(json[docId], error);
+    }];
+}
 
 
 //GET请求

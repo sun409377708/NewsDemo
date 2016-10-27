@@ -14,4 +14,6 @@
 
 - (void)newsListWithChannel:(NSString *)channel start:(NSInteger)start completion:(void(^)(NSArray *array, NSError *error))completion;
 
+
+- (void)newsDetailWithDocId:(NSString *)docId completion:(void(^)(NSDictionary *dict, NSError *error))completion;
 @end
