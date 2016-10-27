@@ -25,4 +25,20 @@
     return l;
 }
 
+- (void)setScale:(float)scale {
+    _scale = scale;
+    
+    //目的: scale在0 ~ 1之间  让label的字体由14 - 18 之间渐变
+    
+    float min = 1;
+    float max = (float)kSelectedSize / kNormalSize;
+    
+    float s = (max - 1) * scale + min;
+    
+    self.transform = CGAffineTransformMakeScale(s, s);
+    
+    //设置字体颜色
+    self.textColor = [UIColor colorWithRed:scale green:0 blue:0 alpha:1.0];
+}
+
 @end

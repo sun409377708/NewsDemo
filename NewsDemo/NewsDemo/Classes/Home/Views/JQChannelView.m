@@ -29,7 +29,7 @@
     _channelList = channelList;
     
     //设置label的frame
-    CGFloat x = 20;
+    CGFloat x = 30;
     CGFloat margin = 8;
     CGFloat height = _scrollView.bounds.size.height;
     
@@ -49,6 +49,19 @@
     
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
+    
+    //设置标签为0的label为1
+    [self changeLabelWithIndex:0 scale:1.0];
+    
 }
+
+//改变字体大小
+- (void)changeLabelWithIndex:(NSInteger)index scale:(float)scale {
+    
+    JQChannelLabel *label = _scrollView.subviews[index];
+    
+    label.scale = scale;
+}
+
 
 @end

@@ -11,7 +11,7 @@
 @implementation UILabel (CZAddition)
 
 + (instancetype)cz_labelWithText:(NSString *)text fontSize:(CGFloat)fontSize color:(UIColor *)color {
-    UILabel *label = [[UILabel alloc] init];
+    UILabel *label = [[self alloc] init];
     
     label.text = text;
     label.font = [UIFont systemFontOfSize:fontSize];

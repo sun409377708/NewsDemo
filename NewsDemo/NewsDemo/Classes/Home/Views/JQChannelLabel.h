@@ -12,4 +12,7 @@
 
 + (instancetype)channelLabelWithTitle:(NSString *)title;
 
+//缩放比例大小
+@property (nonatomic, assign) float scale;
+
 @end
