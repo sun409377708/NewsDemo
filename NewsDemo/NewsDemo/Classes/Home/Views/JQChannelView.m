@@ -32,15 +32,26 @@
     CGFloat x = 30;
     CGFloat margin = 8;
     CGFloat height = _scrollView.bounds.size.height;
+    NSInteger index = 0;
     
     for (JQChannel *channel in channelList) {
         
         JQChannelLabel *l = [JQChannelLabel channelLabelWithTitle:channel.tname];
         
+        l.userInteractionEnabled = YES;
+        
         l.frame = CGRectMake(x, 0, l.bounds.size.width, height);
+        
+        //设置tag值
+        l.tag = index++;
         
         // x 偏移
         x += l.bounds.size.width + margin;
+        
+        //label添加手势
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+        
+        [l addGestureRecognizer:tap];
         
         [self.scrollView addSubview:l];
     }
@@ -53,6 +64,19 @@
     //设置标签为0的label为1
     [self changeLabelWithIndex:0 scale:1.0];
     
+}
+
+- (void)tapGesture:(UITapGestureRecognizer *)recognizer {
+
+    JQChannelLabel *label = (JQChannelLabel *)recognizer.view;
+    
+    _selectedIndex = label.tag;
+    
+    //代理通知控制器
+    if ([self.delegate respondsToSelector:@selector(channelView:didSelectedIndex:)]) {
+        
+        [self.delegate channelView:self didSelectedIndex:label.tag];
+    }
 }
 
 //改变字体大小

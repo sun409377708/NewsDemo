@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class JQChannel;
+@class JQChannel, JQChannelView;
+
+@protocol JQChannelViewDelegate <NSObject>
+
+- (void)channelView:(JQChannelView *)channelView didSelectedIndex:(NSInteger)index;
+
+@end
 
 @interface JQChannelView : UIView
 
@@ -16,5 +22,9 @@
 @property (nonatomic, strong) NSArray <JQChannel *>*channelList;
 
 - (void)changeLabelWithIndex:(NSInteger)index scale:(float)scale;
+
+@property (nonatomic, assign) NSInteger selectedIndex;
+
+@property (nonatomic, weak) id <JQChannelViewDelegate>delegate;
 
 @end

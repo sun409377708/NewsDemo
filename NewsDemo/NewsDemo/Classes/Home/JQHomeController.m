@@ -11,7 +11,7 @@
 #import "JQChannel.h"
 #import "JQNewsListController.h"
 
-@interface JQHomeController ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface JQHomeController ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate, JQChannelViewDelegate>
 
 @property (nonatomic, strong) NSArray <JQChannel *>*channelList;
 
@@ -40,11 +40,11 @@
     [self setupUI];
 }
 
-
 - (void)setupUI {
     
     JQChannelView *channel = [JQChannelView channelView];
     
+    channel.delegate = self;
     [self.view addSubview:channel];
     
     [channel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,7 +69,10 @@
     pageVC.dataSource = self;
     pageVC.delegate = self;
     // 2. 设置内容子控制器
-    JQNewsListController *listVC = [[JQNewsListController alloc] initWithChannelId:_channelList[1].tid index:1];
+    JQNewsListController *listVC = [[JQNewsListController alloc] initWithChannelId:_channelList[0].tid index:0];
+    
+    // 2.1 绑定当前控制器的值
+    _currentListVC = listVC;
     
     // 3. 添加至page控制器中
     [pageVC setViewControllers:@[listVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
@@ -87,8 +90,34 @@
     
     //关联属性
     _pageVC = pageVC;
-    _pageScrollView = [pageVC.view subviews][0];
+    
+    if ([pageVC.view.subviews[0] isKindOfClass:[UIScrollView class]]) {
+        _pageScrollView = [pageVC.view subviews][0];
+    }
 }
+
+#pragma mark -
+#pragma mark delegate method
+- (void)channelView:(JQChannelView *)channelView didSelectedIndex:(NSInteger)index {
+    
+    // 0. 如果选的是当前控制器, 直接retrun
+    if (index == _currentListVC.channelIndex) {
+        return;
+    }
+    
+    // 1. 设置选中标签放大, 之前的缩小
+    [channelView changeLabelWithIndex:index scale:1.0];
+    [channelView changeLabelWithIndex:_currentListVC.channelIndex scale:0];
+    
+    // 移动列表页面
+    JQNewsListController *vc = [[JQNewsListController alloc] initWithChannelId:_channelList[index].tid index:index];
+    
+    
+    [_pageVC setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    _currentListVC = vc;
+}
+
 
 #pragma mark -
 #pragma mark KVO监听
@@ -101,7 +130,7 @@
     CGFloat offset = ABS(_pageScrollView.contentOffset.x - width);
     
     CGFloat scale = offset / width;
-    
+    NSLog(@"+++++%zd", _currentListVC.channelIndex);
     [_channel changeLabelWithIndex:_currentListVC.channelIndex scale: (1 - scale)];
     [_channel changeLabelWithIndex:_nextListVC.channelIndex scale:scale];
 }
