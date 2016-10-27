@@ -10,4 +10,8 @@
 
 @implementation JQNewsList
 
+- (NSString *)description {
+    return [self yy_modelDescription];
+}
+
 @end

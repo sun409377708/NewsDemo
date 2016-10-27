@@ -15,10 +15,12 @@ static NSString *extraId = @"extraId";
 static NSString *bigImageId = @"bigImageId";
 static NSString *headerID = @"headerID";
 
+//定义通知名
+NSString *const JQNewsListDidSelectedDocNotification = @"JQNewsListDidSelectedDocNotification";
 
 @interface JQNewsListController ()<UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *newsList;
+@property (nonatomic, strong) NSMutableArray <JQNewsList *>*newsList;
 
 @property (nonatomic, weak) UITableView *tableView;
 
@@ -86,6 +88,17 @@ static NSString *headerID = @"headerID";
     
     _tableView = tableView;
 }
+
+#pragma mark -
+#pragma mark tableView delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    JQNewsList *model = _newsList[indexPath.row];
+    
+    //发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:JQNewsListDidSelectedDocNotification object:model];
+}
+
 
 #pragma mark -
 #pragma mark dataSource

@@ -45,4 +45,9 @@
  */
 @property (nonatomic, assign) BOOL hasHead;
 
+/**
+ * 下级界面ID
+ */
+@property (nonatomic, copy) NSString *docid;
+
 @end

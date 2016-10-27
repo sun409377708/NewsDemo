@@ -10,6 +10,9 @@
 #import "JQChannelView.h"
 #import "JQChannel.h"
 #import "JQNewsListController.h"
+#import "JQNewsDetailController.h"
+
+extern NSString *const JQNewsListDidSelectedDocNotification;
 
 @interface JQHomeController ()<UIPageViewControllerDataSource, UIPageViewControllerDelegate, JQChannelViewDelegate>
 
@@ -38,63 +41,31 @@
     _channelList = [JQChannel channelList];
     
     [self setupUI];
+    
+    //注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:JQNewsListDidSelectedDocNotification object:nil];
 }
 
-- (void)setupUI {
-    
-    JQChannelView *channel = [JQChannelView channelView];
-    
-    channel.delegate = self;
-    [self.view addSubview:channel];
-    
-    [channel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_topLayoutGuide);
-        make.leading.trailing.equalTo(self.view);
-        make.height.mas_equalTo(38);
-    }];
-    
-    channel.channelList = _channelList;
-    
-    _channel = channel;
-    
-    //设置分页控制器
-    [self setPageController];
+- (void)dealloc {
+    //销毁通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)setPageController {
+#pragma mark -
+#pragma mark 实现通知方法
+- (void)notification:(NSNotification *)noty {
     
-    // 1. 实例化page控制器
-    UIPageViewController *pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    // 1. 创建详情控制器
+    JQNewsDetailController *detailVC = [[JQNewsDetailController alloc] init];
     
-    pageVC.dataSource = self;
-    pageVC.delegate = self;
-    // 2. 设置内容子控制器
-    JQNewsListController *listVC = [[JQNewsListController alloc] initWithChannelId:_channelList[0].tid index:0];
+    detailVC.item = noty.object;
     
-    // 2.1 绑定当前控制器的值
-    _currentListVC = listVC;
+    detailVC.hidesBottomBarWhenPushed = YES;
     
-    // 3. 添加至page控制器中
-    [pageVC setViewControllers:@[listVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    
-    // 4. 添加视图, 完成自动布局
-    [self addChildViewController:pageVC];
-    [self.view addSubview:pageVC.view];
-    
-    [pageVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_channel.mas_bottom);
-        make.left.right.bottom.equalTo(self.view);
-    }];
-    
-    [pageVC didMoveToParentViewController:self];
-    
-    //关联属性
-    _pageVC = pageVC;
-    
-    if ([pageVC.view.subviews[0] isKindOfClass:[UIScrollView class]]) {
-        _pageScrollView = [pageVC.view subviews][0];
-    }
+    // 2. push 详情控制器
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
+
 
 #pragma mark -
 #pragma mark delegate method
@@ -130,7 +101,6 @@
     CGFloat offset = ABS(_pageScrollView.contentOffset.x - width);
     
     CGFloat scale = offset / width;
-    NSLog(@"+++++%zd", _currentListVC.channelIndex);
     [_channel changeLabelWithIndex:_currentListVC.channelIndex scale: (1 - scale)];
     [_channel changeLabelWithIndex:_nextListVC.channelIndex scale:scale];
 }
@@ -190,10 +160,67 @@
 //完成展现控制器
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<JQNewsListController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     
-    NSLog(@"完成是调用 %@", [previousViewControllers valueForKey:@"channelIndex"]);
+//    NSLog(@"完成是调用 %@", [previousViewControllers valueForKey:@"channelIndex"]);
     
     //完成是取消监听
     [_pageScrollView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+
+- (void)setupUI {
+    
+    JQChannelView *channel = [JQChannelView channelView];
+    
+    channel.delegate = self;
+    [self.view addSubview:channel];
+    
+    [channel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_topLayoutGuide);
+        make.leading.trailing.equalTo(self.view);
+        make.height.mas_equalTo(38);
+    }];
+    
+    channel.channelList = _channelList;
+    
+    _channel = channel;
+    
+    //设置分页控制器
+    [self setPageController];
+}
+
+- (void)setPageController {
+    
+    // 1. 实例化page控制器
+    UIPageViewController *pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    pageVC.dataSource = self;
+    pageVC.delegate = self;
+    // 2. 设置内容子控制器
+    JQNewsListController *listVC = [[JQNewsListController alloc] initWithChannelId:_channelList[0].tid index:0];
+    
+    // 2.1 绑定当前控制器的值
+    _currentListVC = listVC;
+    
+    // 3. 添加至page控制器中
+    [pageVC setViewControllers:@[listVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    // 4. 添加视图, 完成自动布局
+    [self addChildViewController:pageVC];
+    [self.view addSubview:pageVC.view];
+    
+    [pageVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_channel.mas_bottom);
+        make.left.right.bottom.equalTo(self.view);
+    }];
+    
+    [pageVC didMoveToParentViewController:self];
+    
+    //关联属性
+    _pageVC = pageVC;
+    
+    if ([pageVC.view.subviews[0] isKindOfClass:[UIScrollView class]]) {
+        _pageScrollView = [pageVC.view subviews][0];
+    }
 }
 
 @end
