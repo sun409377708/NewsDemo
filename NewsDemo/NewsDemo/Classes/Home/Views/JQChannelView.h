@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) NSArray <JQChannel *>*channelList;
 
+- (void)changeLabelWithIndex:(NSInteger)index scale:(float)scale;
+
 @end

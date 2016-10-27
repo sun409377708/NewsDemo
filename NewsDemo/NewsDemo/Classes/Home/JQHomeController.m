@@ -21,6 +21,11 @@
 
 @property (nonatomic, weak) UIScrollView *pageScrollView;
 
+
+//当前控制器
+@property (nonatomic, weak) JQNewsListController *currentListVC;
+//下一个控制器
+@property (nonatomic, weak) JQNewsListController *nextListVC;
 @end
 
 @implementation JQHomeController
@@ -89,8 +94,16 @@
 #pragma mark KVO监听
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     
-//    NSLog(@"%@ - %@, %@", keyPath, object, change);
-    NSLog(@" ===> %@", NSStringFromCGPoint(_pageScrollView.contentOffset));
+//    NSLog(@" ===> %@", NSStringFromCGPoint(_pageScrollView.contentOffset));
+    
+    //计算偏移值
+    CGFloat width = _pageScrollView.bounds.size.width;
+    CGFloat offset = ABS(_pageScrollView.contentOffset.x - width);
+    
+    CGFloat scale = offset / width;
+    
+    [_channel changeLabelWithIndex:_currentListVC.channelIndex scale: (1 - scale)];
+    [_channel changeLabelWithIndex:_nextListVC.channelIndex scale:scale];
 }
 
 
@@ -134,8 +147,12 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray<JQNewsListController *> *)pendingViewControllers {
     
 //    NSLog(@"当前控制器%@", [pageViewController.viewControllers valueForKey:@"channelIndex"]);
+    //当前控制器
+    _currentListVC = pageViewController.viewControllers[0];
     
 //    NSLog(@"要显示的控制器 %@", [pendingViewControllers valueForKey:@"channelIndex"]);
+    //要显示的控制器
+    _nextListVC = pendingViewControllers[0];
     
    //KVO监听pageController的scrollView中contentOffset变化
     [_pageScrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:NULL];
