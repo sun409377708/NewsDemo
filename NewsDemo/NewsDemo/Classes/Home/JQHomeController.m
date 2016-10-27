@@ -9,6 +9,7 @@
 #import "JQHomeController.h"
 #import "JQChannelView.h"
 #import "JQChannel.h"
+#import "JQNewsListController.h"
 
 @interface JQHomeController ()
 
@@ -46,6 +47,32 @@
     channel.channelList = _channelList;
     
     _channel = channel;
+    
+    //设置分页控制器
+    [self setPageController];
+}
+
+- (void)setPageController {
+    
+    // 1. 实例化page控制器
+    UIPageViewController *pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    // 2. 设置内容子控制器
+    JQNewsListController *listVC = [[JQNewsListController alloc] init];
+    
+    // 3. 添加至page控制器中
+    [pageVC setViewControllers:@[listVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    // 4. 添加视图, 完成自动布局
+    [self addChildViewController:pageVC];
+    [self.view addSubview:pageVC.view];
+    
+    [pageVC.view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_channel.mas_bottom);
+        make.left.right.bottom.equalTo(self.view);
+    }];
+    
+    [pageVC didMoveToParentViewController:self];
     
 }
 

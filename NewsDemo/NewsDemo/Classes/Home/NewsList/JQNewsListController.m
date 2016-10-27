@@ -56,6 +56,9 @@ static NSString *headerID = @"headerID";
     tableView.rowHeight = UITableViewAutomaticDimension;
     tableView.estimatedRowHeight = 100;
     
+    //设置内缩进
+    [tableView setContentInset:UIEdgeInsetsMake(0, 0, 49, 0)];
+    
     [tableView registerNib:[UINib nibWithNibName:@"JQNewsNormalCell" bundle:nil] forCellReuseIdentifier:normalId];
 
     [tableView registerNib:[UINib nibWithNibName:@"JQExtraImageCell" bundle:nil] forCellReuseIdentifier:extraId];
