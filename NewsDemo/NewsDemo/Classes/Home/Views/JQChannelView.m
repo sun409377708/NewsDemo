@@ -87,5 +87,37 @@
     label.scale = scale;
 }
 
+/**
+ * 重置 label 位置
+ */
+- (void)resetLabel {
+    
+    // 查找当前选中的标签
+    JQChannelLabel *label;
+    for (JQChannelLabel *l in _scrollView.subviews) {
+        if (l.scale == 1) {
+            label = l;
+            break;
+        }
+    }
+    
+    if (label == nil) {
+        return;
+    }
+    
+    CGFloat offset = label.center.x - _scrollView.bounds.size.width * 0.5;
+    
+    // 左侧
+    if (offset < 0 ) {
+        return;
+    }
+    // 右侧
+    if (offset > _scrollView.contentSize.width - _scrollView.bounds.size.width) {
+        return;
+    }
+    
+    [_scrollView setContentOffset:CGPointMake(offset, 0) animated:YES];
+}
+
 
 @end

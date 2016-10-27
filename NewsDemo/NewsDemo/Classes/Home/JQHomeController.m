@@ -24,7 +24,6 @@ extern NSString *const JQNewsListDidSelectedDocNotification;
 
 @property (nonatomic, weak) UIScrollView *pageScrollView;
 
-
 //当前控制器
 @property (nonatomic, weak) JQNewsListController *currentListVC;
 //下一个控制器
@@ -35,7 +34,6 @@ extern NSString *const JQNewsListDidSelectedDocNotification;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
     _channelList = [JQChannel channelList];
@@ -70,23 +68,33 @@ extern NSString *const JQNewsListDidSelectedDocNotification;
 #pragma mark -
 #pragma mark delegate method
 - (void)channelView:(JQChannelView *)channelView didSelectedIndex:(NSInteger)index {
-    
+    // 获取当前控制器
+    JQNewsListController *vc = _pageVC.viewControllers[0];
+
     // 0. 如果选的是当前控制器, 直接retrun
-    if (index == _currentListVC.channelIndex) {
+    if (index == vc.channelIndex) {
         return;
     }
     
     // 1. 设置选中标签放大, 之前的缩小
     [channelView changeLabelWithIndex:index scale:1.0];
-    [channelView changeLabelWithIndex:_currentListVC.channelIndex scale:0];
+    [channelView changeLabelWithIndex:vc.channelIndex scale:0];
     
-    // 移动列表页面
-    JQNewsListController *vc = [[JQNewsListController alloc] initWithChannelId:_channelList[index].tid index:index];
+    //重置标签
+    [_channel resetLabel];
+    
+    // 移动列表页面 更新控制器
+    JQNewsListController *nextVC = [[JQNewsListController alloc] initWithChannelId:_channelList[index].tid index:index];
     
     
-    [_pageVC setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    UIPageViewControllerNavigationDirection dir = UIPageViewControllerNavigationDirectionForward;
     
-    _currentListVC = vc;
+    if (index < vc.channelIndex) {
+        dir = UIPageViewControllerNavigationDirectionReverse;
+    }
+    
+    [_pageVC setViewControllers:@[nextVC] direction:dir animated:YES completion:nil];
+    
 }
 
 
@@ -164,10 +172,31 @@ extern NSString *const JQNewsListDidSelectedDocNotification;
     
     //完成是取消监听
     [_pageScrollView removeObserver:self forKeyPath:@"contentOffset"];
+    
+    [_channel resetLabel];
 }
 
 
 - (void)setupUI {
+    
+    //隐藏并创建导航条
+    self.navigationController.navigationBar.hidden = YES;
+    
+    // 1. 创建导航条
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"网易新闻"];
+    
+    item.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"left" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    navBar.items = @[item];
+    
+    [self.view addSubview:navBar];
+    
+    [navBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(64);
+    }];
     
     JQChannelView *channel = [JQChannelView channelView];
     
@@ -175,7 +204,7 @@ extern NSString *const JQNewsListDidSelectedDocNotification;
     [self.view addSubview:channel];
     
     [channel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_topLayoutGuide);
+        make.top.equalTo(navBar.mas_bottom);
         make.leading.trailing.equalTo(self.view);
         make.height.mas_equalTo(38);
     }];

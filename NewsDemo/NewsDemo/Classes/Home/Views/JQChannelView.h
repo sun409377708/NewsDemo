@@ -27,4 +27,11 @@
 
 @property (nonatomic, weak) id <JQChannelViewDelegate>delegate;
 
+
+/**
+ * 重置 label 位置
+ */
+- (void)resetLabel;
+
+
 @end

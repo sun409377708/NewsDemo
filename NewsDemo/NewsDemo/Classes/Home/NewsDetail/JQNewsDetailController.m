@@ -21,12 +21,39 @@
     _webView = [[UIWebView alloc] init];
     
     self.view = _webView;
+    
+    [self setNavView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self loadData];
+}
+
+- (void)setNavView {
+    // 1. 创建导航条
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    
+    UINavigationItem *item = [[UINavigationItem alloc] initWithTitle:@"新闻内容"];
+    
+    item.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    
+    navBar.items = @[item];
+    
+    [self.view addSubview:navBar];
+    
+    [navBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.view);
+        make.height.mas_equalTo(64);
+    }];
+    
+    _webView.scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+}
+
+- (void)back {
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)loadData {
