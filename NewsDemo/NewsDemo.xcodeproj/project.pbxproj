@@ -20,6 +20,7 @@
 		7739A5EE1DC19C4C0020D974 /* JQChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7739A5E91DC19C4C0020D974 /* JQChannelView.xib */; };
 		7739A5F21DC19CCD0020D974 /* JQChannelLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A5F11DC19CCD0020D974 /* JQChannelLabel.m */; };
 		7739A61E1DC2579E0020D974 /* JQNewsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7739A61D1DC2579E0020D974 /* JQNewsDetailController.m */; };
+		7739A6201DC266570020D974 /* news.css in Resources */ = {isa = PBXBuildFile; fileRef = 7739A61F1DC266570020D974 /* news.css */; };
 		77B41CAA1DBF436E0091E51F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CA91DBF436E0091E51F /* main.m */; };
 		77B41CAD1DBF436E0091E51F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B41CAC1DBF436E0091E51F /* AppDelegate.m */; };
 		77B41CB51DBF436E0091E51F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B41CB41DBF436E0091E51F /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		7739A5F11DC19CCD0020D974 /* JQChannelLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQChannelLabel.m; sourceTree = "<group>"; };
 		7739A61C1DC2579E0020D974 /* JQNewsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQNewsDetailController.h; sourceTree = "<group>"; };
 		7739A61D1DC2579E0020D974 /* JQNewsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQNewsDetailController.m; sourceTree = "<group>"; };
+		7739A61F1DC266570020D974 /* news.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = news.css; sourceTree = "<group>"; };
 		77B41CA51DBF436E0091E51F /* NewsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B41CA91DBF436E0091E51F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		77B41CAB1DBF436E0091E51F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		77B41CFD1DBF5B120091E51F /* NewsDetail */ = {
 			isa = PBXGroup;
 			children = (
+				7739A61F1DC266570020D974 /* news.css */,
 				7739A61C1DC2579E0020D974 /* JQNewsDetailController.h */,
 				7739A61D1DC2579E0020D974 /* JQNewsDetailController.m */,
 			);
@@ -422,6 +425,7 @@
 				7739A5DA1DC0A3AD0020D974 /* topic_news.json in Resources */,
 				77B41D0F1DC05DBA0091E51F /* JQNewsNormalCell.xib in Resources */,
 				7739A5CB1DC085030020D974 /* JQExtraImageCell.xib in Resources */,
+				7739A6201DC266570020D974 /* news.css in Resources */,
 				7739A5D21DC09AB90020D974 /* JQHeadCell.xib in Resources */,
 				7739A5EE1DC19C4C0020D974 /* JQChannelView.xib in Resources */,
 				7739A5D01DC095BD0020D974 /* JQBigImageCell.xib in Resources */,
