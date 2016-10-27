@@ -34,9 +34,19 @@ static NSString *headerID = @"headerID";
     [self loadData];
 }
 
+- (instancetype)initWithChannelId:(NSString *)channelId index:(NSInteger)index {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        //记录成员变量
+        _channelId = channelId;
+        _channelIndex = index;
+    }
+    
+    return self;
+}
+
 - (void)loadData {
     
-    [[JQNetworkManager sharedManager] newsListWithChannel:@"T1348649079062" start:0 completion:^(NSArray *array, NSError *error) {
+    [[JQNetworkManager sharedManager] newsListWithChannel:_channelId start:0 completion:^(NSArray *array, NSError *error) {
         
         NSArray *list = [NSArray yy_modelArrayWithClass:[JQNewsList class] json:array];
         

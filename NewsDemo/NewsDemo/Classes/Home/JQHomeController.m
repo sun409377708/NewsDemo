@@ -11,9 +11,9 @@
 #import "JQChannel.h"
 #import "JQNewsListController.h"
 
-@interface JQHomeController ()
+@interface JQHomeController ()<UIPageViewControllerDataSource>
 
-@property (nonatomic, strong) NSArray *channelList;
+@property (nonatomic, strong) NSArray <JQChannel *>*channelList;
 
 @property (nonatomic, weak) JQChannelView *channel;
 
@@ -56,9 +56,10 @@
     
     // 1. 实例化page控制器
     UIPageViewController *pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    pageVC.dataSource = self;
     
     // 2. 设置内容子控制器
-    JQNewsListController *listVC = [[JQNewsListController alloc] init];
+    JQNewsListController *listVC = [[JQNewsListController alloc] initWithChannelId:_channelList[1].tid index:1];
     
     // 3. 添加至page控制器中
     [pageVC setViewControllers:@[listVC] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
@@ -76,5 +77,42 @@
     
 }
 
+
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(JQNewsListController *)viewController {
+    
+    // 1.取出当前控制器
+    NSInteger index = viewController.channelIndex;
+    
+    index--;
+    
+    // 2.进行判断
+    if (index < 0) {
+        NSLog(@"前面没有了");
+        return nil;
+    }
+    
+    JQNewsListController *vc = [[JQNewsListController alloc] initWithChannelId:_channelList[index].tid index:index];
+
+    return vc;
+    
+}
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(JQNewsListController *)viewController{
+    
+    
+    // 1.取出当前控制器
+    NSInteger index = viewController.channelIndex;
+    
+    index++;
+    
+    // 2.进行判断
+    if (index > _channelList.count) {
+        NSLog(@"后面没有了");
+        return nil;
+    }
+    JQNewsListController *vc = [[JQNewsListController alloc] initWithChannelId:_channelList[index].tid index:index];
+
+    
+    return vc;
+}
 
 @end
