@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JQChannel;
 
 @interface JQChannelView : UIView
 
 + (instancetype)channelView;
+
+@property (nonatomic, strong) NSArray <JQChannel *>*channelList;
 
 @end

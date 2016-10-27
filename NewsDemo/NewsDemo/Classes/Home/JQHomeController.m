@@ -12,6 +12,10 @@
 
 @interface JQHomeController ()
 
+@property (nonatomic, strong) NSArray *channelList;
+
+@property (nonatomic, weak) JQChannelView *channel;
+
 @end
 
 @implementation JQHomeController
@@ -21,17 +25,11 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self loadData];
+    _channelList = [JQChannel channelList];
     
     [self setupUI];
 }
 
-- (void)loadData {
-    
-    NSArray *array = [JQChannel channelList];
-    
-    NSLog(@"%@", array);
-}
 
 - (void)setupUI {
     
@@ -44,6 +42,11 @@
         make.leading.trailing.equalTo(self.view);
         make.height.mas_equalTo(38);
     }];
+    
+    channel.channelList = _channelList;
+    
+    _channel = channel;
+    
 }
 
 
