@@ -39,6 +39,29 @@
         NSArray *img = dict[@"img"];
         NSArray *video = dict[@"video"];
         
+        //插入图片
+        //	src = http://cms-bucket.nosdn.127.net/bacf0bf7f99545c7b9ebf9c2fd362b9720161027192112.jpeg;
+        //  ref = <!--IMG#0-->;
+        
+        //查找body中ref对于的位置进行替换
+        for (NSDictionary *dict in img) {
+            
+            // 1> 获取ref内容
+            NSString *ref = dict[@"ref"];
+            
+            // 2> 找出其位置
+            NSRange range = [body rangeOfString:ref];
+            
+            // 3> 判断是否找到
+            if (range.location == NSNotFound) {
+                continue;
+            }
+            
+            // 4> 替换 range的内容
+            NSString *imgStr = [NSString stringWithFormat:@"<img src=\"%@\" />", dict[@"src"]];
+            body = [body stringByReplacingCharactersInRange:range withString:imgStr];
+        }
+        
         //显示界面
         [self.webView loadHTMLString:body baseURL:nil];
     }];
