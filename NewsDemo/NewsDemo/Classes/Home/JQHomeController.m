@@ -8,6 +8,7 @@
 
 #import "JQHomeController.h"
 #import "JQChannelView.h"
+#import "JQChannel.h"
 
 @interface JQHomeController ()
 
@@ -20,7 +21,16 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self loadData];
+    
     [self setupUI];
+}
+
+- (void)loadData {
+    
+    NSArray *array = [JQChannel channelList];
+    
+    NSLog(@"%@", array);
 }
 
 - (void)setupUI {
